@@ -9,7 +9,7 @@ public class GoogleSearchPage extends Base{
 	
 	By searchField = By.cssSelector("[title^='Search']");
 	By searchOnGoogleBtn = By.name("btnK");
-	By firstSuggestion = By.xpath("/html/body/div/div[3]/form/div[2]/div[1]/div[2]/div[2]/ul/li[1]");
+	public By firstSuggestion = By.xpath("/html/body/div/div[3]/form/div[2]/div[1]/div[2]/div[2]/ul/li[1]");
 		
 	public GoogleSearchPage(WebDriver driver) {
 		super(driver);
@@ -24,6 +24,10 @@ public class GoogleSearchPage extends Base{
 	public void searhTextSuggestion(String text) {
 		waitToBeVisible(searchField);
 		type(text, searchField);
+		waitToBeClickable(firstSuggestion);
+	}
+	
+	public void selectFirstSuggestion() {
 		waitToBeClickable(firstSuggestion);
 		clic(firstSuggestion);
 	}
