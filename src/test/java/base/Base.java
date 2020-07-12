@@ -64,6 +64,10 @@ public class Base {
 		driver.get(url);
 	}
 	
+	public String getURL() {
+		return driver.getCurrentUrl();
+	}
+	
 	public void waitToBeClickable(By locator) {
 		WebDriverWait ewait = new WebDriverWait(driver, 10);
 		ewait.until(ExpectedConditions.elementToBeClickable(locator));
@@ -78,6 +82,5 @@ public class Base {
 		JavascriptExecutor je = (JavascriptExecutor) driver;
 		je.executeScript("arguments[0].scrollIntoView(true);", findElement(locator));
 	}
-
 
 }

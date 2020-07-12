@@ -16,5 +16,9 @@ public class GoogleResultPage extends Base{
 	public String getFirstResultText() {
 		return getText(firstResult);
 	}
+	
+	public void clickFirstResult() {
+		clic(firstResult);
+	}
 
 }
