@@ -18,6 +18,12 @@ public class GoogleSearchPage extends Base{
 	public void searhText(String text) {
 		waitToBeVisible(searchField);
 		type(text, searchField);
+		pressEnter(searchField);
+	}
+	
+	public void searhTextSuggestion(String text) {
+		waitToBeVisible(searchField);
+		type(text, searchField);
 		waitToBeClickable(firstSuggestion);
 		clic(firstSuggestion);
 	}

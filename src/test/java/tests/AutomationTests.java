@@ -28,7 +28,7 @@ public class AutomationTests {
 
 	@After
 	public void tearDown() throws Exception {
-		//driver.quit();
+		driver.quit();
 	}
 	
 	@Test
@@ -42,9 +42,11 @@ public class AutomationTests {
 	
 	@Test
 	public void makePartialTextSearch() {
-		searchPage.searhText("The name of the w");
+		searchPage.searhTextSuggestion("The name of the w");
 		assertTrue(resultsPage.getFirstResultText().contains("The Name of the Wind"));
 		assertTrue(resultsPage.getFirstResultText().contains("Patrick Rothfuss"));
+		resultsPage.clickFirstResult();
+		assertFalse(resultsPage.getURL().contains("https://www.patrickrothfuss.com/content/books.asp"));
 	}
 
 }
